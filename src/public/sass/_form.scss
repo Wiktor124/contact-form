@@ -1,0 +1,81 @@
+// Variables
+$color-primary: #007bff;
+$color-secondary: #6c757d;
+
+// Mixins
+@mixin form-group {
+  margin-bottom: 1rem;
+}
+
+@mixin form-label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: $color-secondary;
+}
+
+@mixin form-input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid $color-secondary;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  color: $color-secondary;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+@mixin form-textarea {
+  @include form-input;
+  resize: vertical;
+}
+
+@mixin form-button {
+  display: block;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: $color-primary;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-primary, 10%);
+  }
+}
+
+// Styles
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form__group {
+  @include form-group;
+}
+
+.form__label {
+  @include form-label;
+}
+
+.form__input,
+.form__textarea {
+  @include form-input;
+}
+
+.form__textarea {
+  @include form-textarea;
+}
+
+.form__button {
+  @include form-button;
+}
